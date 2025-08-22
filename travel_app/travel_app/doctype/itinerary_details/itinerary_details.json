@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-22 10:11:26.274517",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "general_details_section",
+  "day",
+  "column_break_ccvs",
+  "itinerary_type",
+  "activity_details_section",
+  "activity",
+  "activity_description",
+  "column_break_xwxu",
+  "start_time",
+  "duration",
+  "section_break_dtrj",
+  "hotel",
+  "hotel_description",
+  "column_break_hctl",
+  "checkin_time",
+  "checkout_time_copy"
+ ],
+ "fields": [
+  {
+   "fieldname": "day",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Day"
+  },
+  {
+   "fieldname": "column_break_ccvs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "hotel",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Hotel",
+   "options": "Hotel"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Activity",
+   "options": "Activity"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "label": "Duration"
+  },
+  {
+   "fieldname": "section_break_dtrj",
+   "fieldtype": "Section Break",
+   "label": "Hotel Details"
+  },
+  {
+   "fieldname": "column_break_hctl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "checkin_time",
+   "fieldtype": "Datetime",
+   "label": "CheckIn Time"
+  },
+  {
+   "fieldname": "checkout_time_copy",
+   "fieldtype": "Datetime",
+   "label": "CheckOut Time Copy"
+  },
+  {
+   "fieldname": "general_details_section",
+   "fieldtype": "Section Break",
+   "label": "General Details "
+  },
+  {
+   "fieldname": "activity_details_section",
+   "fieldtype": "Section Break",
+   "label": "Activity Details"
+  },
+  {
+   "fieldname": "column_break_xwxu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "itinerary_type",
+   "fieldtype": "Select",
+   "label": "Itinerary Type",
+   "options": "\nHotel\nActivity"
+  },
+  {
+   "fieldname": "activity_description",
+   "fieldtype": "Text Editor",
+   "label": "Activity Description"
+  },
+  {
+   "fieldname": "hotel_description",
+   "fieldtype": "Text Editor",
+   "label": "Hotel Description"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-08-22 10:36:52.507366",
+ "modified_by": "Administrator",
+ "module": "Travel-app",
+ "name": "Itinerary Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

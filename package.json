@@ -1,0 +1,16 @@
+{
+  "name": "travel_app",
+  "version": "1.0.0",
+  "description": "Customized travel website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd travel && yarn install",
+    "dev": "cd travel && yarn dev",
+    "build": "cd travel && yarn build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

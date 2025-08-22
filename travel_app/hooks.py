@@ -3,7 +3,7 @@ app_title = "Travel-app"
 app_publisher = "jay "
 app_description = "Customized travel website "
 app_email = "jay400479@gmail.com"
-app_license = "mit"
+app_license = "midddt"
 
 # Apps
 # ------------------
@@ -242,3 +242,5 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+website_route_rules = [{'from_route': '/travel/<path:app_path>', 'to_route': 'travel'},]

@@ -5,3 +5,5 @@
 tags
 node_modules
 __pycache__
+travel_app/public/travel
+travel_app/www/travel.html

@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2025-08-22 08:22:03.547376",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "trips_basic_details_section",
+  "title",
+  "origin_country",
+  "destination_country",
+  "column_break_fogo",
+  "start_date",
+  "end_date",
+  "duration",
+  "type_of_trip_tab",
+  "trip_type_section",
+  "group_type",
+  "travel_style",
+  "column_break_uzfi",
+  "interest",
+  "budget",
+  "itinerary_break_down_tab",
+  "itinerary_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "trips_basic_details_section",
+   "fieldtype": "Section Break",
+   "label": "Trips Basic Details"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "column_break_fogo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Int",
+   "label": "Duration"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "origin_country",
+   "fieldtype": "Link",
+   "label": "Origin Location",
+   "options": "Country"
+  },
+  {
+   "fieldname": "destination_country",
+   "fieldtype": "Link",
+   "label": "Destination Location",
+   "options": "Country"
+  },
+  {
+   "fieldname": "type_of_trip_tab",
+   "fieldtype": "Tab Break",
+   "label": "Type Of Trip"
+  },
+  {
+   "fieldname": "trip_type_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Type"
+  },
+  {
+   "default": "Solo",
+   "fieldname": "group_type",
+   "fieldtype": "Select",
+   "label": "Group Type",
+   "options": "\nSolo\nCouple\nFamily\nBusiness\nFriends"
+  },
+  {
+   "fieldname": "column_break_uzfi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Local Experience",
+   "fieldname": "interest",
+   "fieldtype": "Select",
+   "label": "Interest",
+   "options": "\nFood & Culinary\nExtreme Sport\nHiking & Nature Walk\nHistoric Site\nShopping\nLocal Experience\nPhotography Spot\nBeaches & Water Activities"
+  },
+  {
+   "default": "Relaxed",
+   "fieldname": "travel_style",
+   "fieldtype": "Select",
+   "label": "Travel Style",
+   "options": "\nRelaxed\nAdventure\nCulture\nLuxury\nNature & Outdoor\nCity Exploration"
+  },
+  {
+   "default": "Budget",
+   "fieldname": "budget",
+   "fieldtype": "Select",
+   "label": "Budget",
+   "options": "\nBudget\nMix-Range\nPremium\nLuxury"
+  },
+  {
+   "fieldname": "itinerary_break_down_tab",
+   "fieldtype": "Tab Break",
+   "label": "Itinerary Break Down"
+  },
+  {
+   "fieldname": "itinerary_details",
+   "fieldtype": "Table",
+   "label": "Itinerary Details",
+   "options": "Itinerary Details"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-22 10:23:30.770538",
+ "modified_by": "Administrator",
+ "module": "Travel-app",
+ "name": "Trips",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
