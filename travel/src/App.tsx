@@ -1,6 +1,7 @@
 
 import './App.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import { ProtectedRoute } from './utils/auth/ProtectedRoute';
 import { FrappeProvider } from 'frappe-react-sdk';
 import { Theme } from '@radix-ui/themes';
 
@@ -9,16 +10,16 @@ function App() {
 	createRoutesFromElements(
 		<>
 			<Route path="/login" lazy={() => import('@/pages/auth/Login')} />
-			<Route 
-				path="/dashboard" 
-				lazy={() => import('@/pages/admin/AdminLayout')}
-			>
-				<Route index lazy={() => import('@/pages/admin/Dashboard')} />
+			<Route path="/sign-up" lazy={() => import('@/pages/auth/SignUp')} />
+			<Route  path="/" element = {<ProtectedRoute/>}>
+				<Route path='/test' lazy={() => import('@/pages/admin/Dashboard')} />
 				
 			</Route>
 
 		</>
-	)
+	),{
+		basename: import.meta.env.VITE_BASE_NAME ? `/${import.meta.env.VITE_BASE_NAME}` : ''
+	}
   )
   return (
 	

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom"
-import {NavItems}   from "../../components";
+import {NavItems} from "@/components";
 
 
 

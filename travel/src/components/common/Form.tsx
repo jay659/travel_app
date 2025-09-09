@@ -9,7 +9,7 @@ export const Label = ({children, isRequired, ...props}:LabelProps) => {
    
   return (
     <Box pb='1'>
-        <Text as='label' weight='medium' size='2' {...props}>
+        <Text as='label' weight='medium' {...props}>
            
             {children}{isRequired && <Text as='span' color='red'>*</Text>}
         </Text>

@@ -4,20 +4,22 @@ import { useFrappeAuth, useFrappeGetCall } from "frappe-react-sdk";
 
 import { Link, useNavigate } from "react-router-dom";  
 import { Label } from "@/components/common/Form";
+import AuthContainer from "@/components/layouts/AuthContainer";
+import type { LoginInputs, LoginContext, SocialProvider } from "@/types/Auth/Login";
 
-interface LoginInputs {
-  email: string;
-  password: string;
-    
-}
+import { FaGoogle } from "react-icons/fa";
+
+const imageUrl = `${import.meta.env.VITE_FRAPPE_BASE_URL}/files/auth-img.webp`;
+
+
 export const Component = () => {
   const navigate = useNavigate();
-  const { currentUser , login } = useFrappeAuth()
+  const { login } = useFrappeAuth()
+ const { data : LoginContext , mutate } = useLoginContext()
 
   const {
     register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
+    handleSubmit
    
   } = useForm<LoginInputs>()
 
@@ -35,14 +37,15 @@ export const Component = () => {
     
   }
   return (
-    <main className="auth">
-      <div className="size-full flex-center">
-          <div className="sign-in-card ">
+    <AuthContainer>
+      <main className="auth">
+        <div className="size-full">
+          <div className="sign-in-card">
            
             <Box>
               <form onSubmit={handleSubmit(onSubmit)}>
 
-                <Flex direction='column' gap='6' >
+                <Flex direction='column' gap='4' >
                     <Flex direction='column' gap='2'>
                       <Label htmlFor='email' isRequired size='3'>Email Id</Label>
                         <TextField.Root
@@ -75,7 +78,15 @@ export const Component = () => {
                           color="gray"
                           />
                     </Flex>
-                    <Flex direction='column' gap='2' align="end">
+                  
+                    <Flex direction='column' gap='3' >
+                      <Button type="submit" size="3" variant="soft">
+                          Sign In
+                      </Button>
+                    </Flex>
+                    <OtherLoginMethods  />
+                    
+                      <Flex direction='column' gap='2' align="end">
                           <LinkButton
                               asChild
                               color='gray'
@@ -86,11 +97,6 @@ export const Component = () => {
                               </Link>
                           </LinkButton>
                     </Flex>
-                    <Flex direction='column' gap='2' align="start">
-                      <Button type="submit" size="4" variant="soft">
-                          Sign In
-                      </Button>
-                    </Flex>
                     
                 </Flex>
               </form>
@@ -98,12 +104,48 @@ export const Component = () => {
             
           </div>
         </div>
-    </main> 
+      </main> 
+    </AuthContainer>
    
   )
 }
-
-
-
+const useLoginContext = () => {
+  
+    return useFrappeGetCall<LoginContext>('travel_app.api.login.get_context', {
+        "redirect-to": "/"
+    }, 'travel_app.api.login.get_context', {
+        revalidateOnMount: true,
+        revalidateOnReconnect: false,
+        revalidateOnFocus: false
+    })
+}
+export const  OtherLoginMethods = () =>{
+  const { data: LoginContext } = useLoginContext()
+  return(
+    <>
+       {
+            LoginContext?.message?.social_login ? LoginContext?.message?.provider_logins.map((soc: SocialProvider, i: number) => {
+                return (
+                    <Flex direction='column' key={i} >
+                        <Button
+                            size='3'
+                            color='gray'
+                            variant="outline"
+                            className="not-cal font-medium text-gray-12 dark:text-white"
+                            
+                            asChild>
+                            <Link to={soc.auth_url} className="flex items-center">
+                              
+                                Continue with {soc.provider_name}
+                            </Link>
+                        </Button>
+                    </Flex>
+                )
+            }) : null
+        }
+    </>
+     
+  )
+}
 
 Component.displayName = "LoginPage";

@@ -1,6 +1,11 @@
+import { useContext } from "react"
+import { UserContext } from "../../utils/auth/UserProvider"
+
 export const Component = () => {
+  const { currentUser, isLoading } = useContext(UserContext)
   return (
-    <div>Dashboard</div>
+    <div>{currentUser}</div>
+    
   )
 }
 Component.dispalyName = "Dashboard"

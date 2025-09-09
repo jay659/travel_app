@@ -3,6 +3,6 @@
 
 // frappe.ui.form.on("Hotel", {
 // 	refresh(frm) {
-
+//         console.log('')
 // 	},
 // });
